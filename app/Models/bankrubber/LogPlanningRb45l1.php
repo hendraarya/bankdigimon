@@ -9,6 +9,7 @@ class LogPlanningRb45l1 extends Model
 {
     use HasFactory;
 
+    protected $connection = 'pgsql';
     protected $table = 'backup_planrubber_45l1';
 
     protected $guarded = [];

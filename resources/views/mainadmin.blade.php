@@ -18,11 +18,11 @@
 
     <!-- Custom fonts for this template-->
     <link rel="stylesheet" href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.css') }}">
 
     <!-- Custom style for this template-->
     <link rel="stylesheet" href="{{ asset('assets/sbadmin2/css/sb-admin-2.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/jquery-ui/jquery-ui.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.css') }}">
 
 </head>
 
@@ -71,7 +71,7 @@
                 <div id="wronline" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Menu :</h6>
-                        <a class="collapse-item" href="{{url('/viewdatawronline')}}">View Data</a>
+                        <a class="collapse-item" href="{{url('/bankwronline/viewdatawronline')}}">View Data</a>
                         <a class="collapse-item" href="cards.html">Export Data</a>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
                 <div id="bankrubber" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Menu :</h6>
-                        <a class="collapse-item" href="{{url('/viewdatarb')}}">View Data</a>
+                        <a class="collapse-item" href="{{url('/bankrubber/viewdatarb')}}">View Data</a>
                         <a class="collapse-item" href="{{url('/exportdatarb')}}">Export Data</a>
                     </div>
                 </div>
@@ -287,7 +287,7 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_1.svg" alt="...">
+                                        <img class="rounded-circle" src="{{ asset('assets/img/logonok.png') }}" alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div class="font-weight-bold">
@@ -298,7 +298,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_2.svg" alt="...">
+                                        <img class="rounded-circle" src="{{ asset('assets/img/logonok.png') }}" alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
                                     <div>
@@ -309,7 +309,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_3.svg" alt="...">
+                                        <img class="rounded-circle" src="{{ asset('assets/img/logonok.png') }}" alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
                                     <div>
@@ -428,7 +428,9 @@
 <!--Boostrap Core Javascript -->
 <script src="{{ asset('assets/vendor/jquery/jquery.min.js')}}"></script>
 <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/datatables/jquery.dataTables.js') }}"></>
+<script src="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></!script>
+
 
 <!-- Core Plugin Javascript -->
 {{-- <script src="{{ asset('assets/vendor/jquery-easing/jquery.easing.min.js') }}"></script> --}}
@@ -439,6 +441,7 @@
 {{-- Jquery UI  --}}
 <script src="{{ asset('assets/jquery-ui/jquery-ui.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
 
 <script>
     $.ajaxSetup({
@@ -447,6 +450,7 @@
             xhr.setRequestHeader("X-CSRF-TOKEN", "{{ csrf_token() }}");
         }
     });
+    
 
 </script>
 

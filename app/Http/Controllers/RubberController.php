@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use PDF;
 use Excel;
 use Validator;
@@ -16,45 +17,25 @@ use App\Models\bankrubber\LogPlanningRb20l4;
 
 class RubberController extends Controller
 {
-    public function viewdatrb()
-    {
-        
-        $data = LogPlanningRb45l1::all();
-        return view('bankrubber.viewdatrb',['data' => $data]);
-    }
-
-    public function viewdataplan()
-    {
-        try {
-            
-            $logplan = $request->log_planning;
-
-            if($logplan == 'kn45l1')
-            {
-                $data = LogPlanningRb45l1::all();
-            }
-            else if($logplan == 'kn45l2')
-            {
-                $data = LogPlanningRb45l2::all();
-            }
-            else if($logplan == 'kn45l5')
-            {
-                $data = LogPlanningRb45l5::all();
-            }
-            else if($logplan == 'kn20l3')
-            {
-                $data = LogPlanningRb20l3::all();
-            }
-            else if($logplan == 'kn20l4')
-            {
-                $data = LogPlanningRb20l4::all();
-            }
-
-            return view('bankrubber.viewdatrb',['data' => $data]);
-        } catch (\Exception $e) {
-            return response()->json($e->getMessage(), 500);
-        }
-    }
+     // get list data untuk datatable berdasarkan data yg dipilih 
+     public function getListData(Request $request)
+     {
+         $array = [
+             // key nya itu field di inputan html => value nya buat nama table di databasenya
+             // key => value
+             'LogPlanningRb20l3' => 'backup_planrubber_20l3',
+             'LogPlanningRb20l4' => 'backup_planrubber_20l4',
+             'LogPlanningRb45l1' => 'backup_planrubber_45l1',
+             'LogPlanningRb45l2' => 'backup_planrubber_45l2',
+             'LogPlanningRb45l5' => 'backup_planrubber_45l5'
+         ];
+ 
+         $tableName = $array[ $request->jenis_table];
+         $data = \DB::table($tableName)->get();
+ 
+         // kirim response sebagai JSON format ke front nya / ke blade nya
+         return response()->json($data, 200);
+     }
 
     public function exportExcel(Request $request)
     {
@@ -142,4 +123,5 @@ class RubberController extends Controller
             return response()->json($e->getMessage(), 500);
         }
     }
+
 }

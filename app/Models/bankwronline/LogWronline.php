@@ -9,6 +9,7 @@ class LogWronline extends Model
 {
     use HasFactory;
 
+    protected $connection = 'wronline';
     protected $table = 'xwr';
 
     protected $guarded = [];

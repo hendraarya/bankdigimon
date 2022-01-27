@@ -9,6 +9,7 @@ class Siswa extends Model
 {
     use HasFactory;
 
+    protected $connection = 'triallaravel';
     protected $table = 'siswas';
     protected $primaryKey = 'id';
 
