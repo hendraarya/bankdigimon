@@ -42,10 +42,10 @@
         <thead>
             <tr>
                 <th align="center">No</th>
-                <th align="center">WR ID</th>
+                <th align="center" width="80px">WR ID</th>
                 <th align="center">Machine No</th>
                 <th align="center">Machine Name</th>
-                <th align="center">Failure Date</th>
+                <th align="center" width="70px">Failure Date</th>
                 <th align="center">Failure Time </th>
                 <th align="center">Problem </th>
                 <th align="center">Type</th>
